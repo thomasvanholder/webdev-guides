@@ -2,9 +2,19 @@
 
 Bootstrap your productivity as a developer by getting the best out of the coding languages, frameworks and tools you are using every day.
 
+# Contents
+1. Languages
+   - [HTML](#HTML)
+   - [Ruby](#Ruby)
+2. Frameworks
+   - [Rails](#Rails)
+3. Tools
+   - [VS Code](#vs-code)
+
 ## Languages
 
-### HTML with Tailwind
+### HTML
+
 
 ❌ Don't use infinite divs
 ```html
@@ -179,6 +189,9 @@ In production your code can break when not mentioning the extension.
 For a full guide read the [Ruby Style Guide](https://rubystyle.guide/)
 
 ## Frameworks
+
+### Rails
+
 For a full guide read the [Rails Style Guide](https://rails.rubystyle.guide/)
 
 ## Tools
