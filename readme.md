@@ -50,7 +50,7 @@ Bootstrap your productivity as a developer by getting the best out of the coding
   <div></div>
 </section>
 ```
-✅ Do use an single enter to visually sepearte code
+✅ Do use an single enter to visually seperate code
 ```html
 <section>
   <div></div>
@@ -69,6 +69,20 @@ Bootstrap your productivity as a developer by getting the best out of the coding
 ```
 ---
 
+❌ Don't use `<br>` to break a secentence
+```html
+<p>This is a sentence which should be split<br>
+over multiple lines on mobile</p>
+```
+
+✅ Do use ```block``` and ```inline``` to break sentences
+```html
+<p>This is a sentence which should be split
+  <span class="block md:inline">over multiple lines on mobile</span>
+</p>
+```
+---
+
 ❌ Don't create custom classes to write CSS
 ```css
 .card-wrapper {
@@ -83,8 +97,51 @@ Bootstrap your productivity as a developer by getting the best out of the coding
 <div class="mt-2 h-[62px] w-[200[px]">
 </div>
 ```
+---
 
+❌ Don't use padding or margin to center and narrow down content
+```html
+<div class="mx-10 md:mx-20 lg:mx-32 xl:mx-44 2xl: mx-64">
+</div>
+```
 
+✅ Do use screensize classes to center and narrow down content
+```html
+<div class="max-w-lg mx-auto">
+</div>
+```
+---
+
+❌ Don't use string concatination to create class names
+```erb
+<div class="text-<%= error ? 'red' : 'green' %>-500"></div>
+```
+
+✅ Do dynamically select a complete classname
+```erb
+<div class="<%= error ? 'text-red-500' : 'text-green-500' %>"></div>
+```
+
+Tailwind uses PurgeCSS which drops all un-used classes in production to keep the CSS file size small. Concatinated are not picked up.
+
+---
+
+❌ Don't write custom classes to write CSS
+```css
+.card-wrapper {
+  height: 62px;
+  width: 200px;
+  margin-top: 8px;
+}
+```
+
+✅ Do write custom Tailwind inline when needed
+```html
+<div class="mt-2 h-[62px] w-[200[px]">
+</div>
+```
+
+---
 
 ❌ Don't add in svg images inside the html code
 ```html
@@ -112,6 +169,7 @@ In production your code can break when not mentioning the extension.
 ```
 
 ---
+
 
 
 
