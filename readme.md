@@ -16,7 +16,7 @@ Bootstrap your productivity as a developer by getting the best out of the coding
 ### HTML
 
 
-❌ Don't use infinite divs
+❌ Don't use infinite div stacking
 ```html
 <div class="mt-5">
   <div class="flex">
@@ -179,6 +179,12 @@ In production your code can break when not mentioning the extension.
 ```
 
 ---
+
+
+## TODO
+[] div element is an element of last resort.
+[] article for contact information
+[] Avoid s, i, b, and u elements
 
 
 
