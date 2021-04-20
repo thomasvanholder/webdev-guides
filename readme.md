@@ -104,7 +104,7 @@ over multiple lines on mobile</p>
 
 ✅ Do write custom Tailwind inline when needed
 ```html
-<div class="mt-2 h-[62px] w-[200[px]">
+<div class="mt-2 h-[62px] w-[200px]">
 </div>
 ```
 ---
@@ -157,20 +157,45 @@ Tailwind uses PurgeCSS which drops all un-used classes in production to keep the
 
 ---
 
-❌ Don't write custom classes to write CSS
-```css
-.card-wrapper {
-  height: 62px;
-  width: 200px;
-  margin-top: 8px;
-}
+❌ Don't use center
+```html
 ```
 
-✅ Do write custom Tailwind inline when needed
+✅ Do use inset to position an image
 ```html
-<div class="mt-2 h-[62px] w-[200[px]">
-</div>
 ```
+
+---
+
+❌ Don't use flex for positioning elements rows and columns
+```html
+<ul class="flex flex-col items-center">
+  <li class="flex">
+    <div>City</div>
+    <div>Barcelona</div>
+  </li>
+  <li class="flex">
+    <div>Country</div>
+    <div>Spain</div>
+  </li>
+</ul>
+```
+
+✅ Do use grid to display columns and rows
+```html
+<ul class="grid grid-cols-2">
+  <li class="flex">
+    <div>City</div>
+    <div>Barcelona</div>
+  </li>
+  <li class="flex">
+    <div>Country</div>
+    <div>Spain</div>
+  </li>
+</ul>
+```
+
+Flexbox is great for horizontal or vertical content.
 
 ---
 
