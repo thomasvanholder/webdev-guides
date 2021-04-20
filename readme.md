@@ -121,6 +121,27 @@ over multiple lines on mobile</p>
 </div>
 ```
 ---
+❌ Don't use the margin on every child
+```html
+<ul>
+  <li class="mb-2 mt-2"></li>
+  <li class="mb-2 mt-2"></li>
+  <li class="mb-2 mt-2"></li>
+  <li class="mb-2 mt-2"></li>
+  <li class="mb-2 mt-2"></li>
+</ul>
+```
+✅ Do use the space and gap classes
+```html
+<ul class="space-y-4">
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+```
+---
 
 ❌ Don't use string concatination to create class names
 ```erb
