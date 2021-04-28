@@ -226,6 +226,19 @@ In production your code can break when not mentioning the extension.
 
 ---
 
+---
+❌ Don't use the ```<b>``` element to style text
+```html
+<p>these are <b>highlighted words</b> in a sentence.</p>
+```
+
+✅ Do use a font-famliy to add styles to text
+```html
+<p>these are <span class="font-bold">highlighted words</span> in a sentence.</p>
+```
+
+---
+
 
 ## TODO
 [] div element is an element of last resort.
