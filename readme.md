@@ -1,20 +1,4 @@
-# Guides on How to Code
-
-Bootstrap your productivity as a developer by getting the best out of the coding languages, frameworks and tools you are using every day.
-
-# Contents
-1. Languages
-   - [HTML](#HTML)
-   - [Ruby](#Ruby)
-2. Frameworks
-   - [Rails](#Rails)
-3. Tools
-   - [VS Code](#vs-code)
-
-## Languages
-
-### HTML
-
+# Tailwind Best Practices
 
 ❌ Don't use infinite div stacking
 ```html
@@ -44,7 +28,6 @@ Bootstrap your productivity as a developer by getting the best out of the coding
 ```
 
 ---
-
 ❌ Don't write 10s of line of code without a linebreak
 ```html
 <section>
@@ -157,16 +140,6 @@ Tailwind uses PurgeCSS which drops all un-used classes in production to keep the
 
 ---
 
-❌ Don't use center
-```html
-```
-
-✅ Do use inset to position an image
-```html
-```
-
----
-
 ❌ Don't use flex for positioning elements rows and columns
 ```html
 <ul class="flex flex-col items-center">
@@ -237,29 +210,8 @@ In production your code can break when not mentioning the extension.
 <p>these are <span class="font-bold">highlighted words</span> in a sentence.</p>
 ```
 
+Try to avoid using s, i and u elements.
 ---
 
-
-## TODO
-[] div element is an element of last resort.
-[] article for contact information
-[] Avoid s, i, b, and u elements
-
-
-
-
-
-### Ruby
-
-For a full guide read the [Ruby Style Guide](https://rubystyle.guide/)
-
-## Frameworks
-
-### Rails
-
-For a full guide read the [Rails Style Guide](https://rails.rubystyle.guide/)
-
-## Tools
-
-### VS Code
-[Keyboard shortcuts](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
+#### todo
+[] use inset
