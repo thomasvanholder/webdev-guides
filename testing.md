@@ -189,5 +189,6 @@ end
 ```
 
 Further reading:
+- [Official Guide](https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md)
 - [Better specs](https://www.betterspecs.org/#single)
 - [Rspec style guide](https://github.com/rubocop/rspec-style-guide)
