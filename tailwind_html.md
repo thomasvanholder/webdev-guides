@@ -1,4 +1,4 @@
-# Tailwind Best Practices
+# Tailwind & HTML Best Practices
 
 ❌ Don't use infinite div stacking
 ```html
