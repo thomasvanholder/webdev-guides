@@ -1,10 +1,10 @@
 Below are few common testing scenario's for rspec. 
 To be able to use random sample data and to create test fixtures add to your `gemfile`
 
-```
+```ruby
 group :development, :test do
-  gem 'factory_bot_rails'   <---
-  gem 'faker' <---
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 ```
 
