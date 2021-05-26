@@ -13,7 +13,6 @@ describe "User signs out", type: :system do
   end
 
   scenario "when user signed in" do
-    find('#user-menu-button').click #click menu button to open dropw
     click_link "Sign out"
     expect(page).to have_text 'You need to sign in or sign up before continuing.'
     expect(page).to have_no_link 'Sign Out'
