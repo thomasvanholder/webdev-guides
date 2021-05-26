@@ -1,6 +1,10 @@
 Below are few common testing scenario's for rspec.
 
-## User sign in 
+- [User sign in](#user-sign-in)
+- [User sign up](#user-sign-up)
+- [User sign out](#user-sign-out)
+
+## User sign in
 `spec/system/user_signin_spec.rb`
 
 ```ruby
