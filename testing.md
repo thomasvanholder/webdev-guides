@@ -1,17 +1,17 @@
-Below are few common testing scenario's for rspec. 
-To be able to use random sample data and to create test fixtures add to your `gemfile`
+Below are few common testing scenario's for rspec.
 
+- [User sign in](#user-sign-in)
+- [User sign up](#user-sign-up)
+- [User sign out](#user-sign-out)
+- [forgot password](#forgot-password)
+ 
+To be able to use random sample data and to create test fixtures add to your `gemfile`
 ```ruby
 group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
 end
 ```
-
-- [User sign in](#user-sign-in)
-- [User sign up](#user-sign-up)
-- [User sign out](#user-sign-out)
-- [forgot password](#forgot-password)
 
 ## User sign in
 `spec/system/user_signin_spec.rb`
