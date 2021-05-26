@@ -1,9 +1,9 @@
 Below are few common testing scenario's for rspec.
 
-- [User sign in](#user-sign-in)
-- [User sign up](#user-sign-up)
-- [User sign out](#user-sign-out)
-- [forgot password](#forgot-password)
+- [Sign in](#Sign-in)
+- [Sign up](#Sign-up)
+- [Sign out](#Sign-out)
+- [Forgot password](#forgot-password)
  
 To be able to use random sample data and to create test fixtures add to your `gemfile`
 ```ruby
@@ -13,8 +13,8 @@ group :development, :test do
 end
 ```
 
-## User sign in
-`spec/system/user_signin_spec.rb`
+## Sign in
+`spec/system/signin_spec.rb`
 
 ```ruby
 require "rails_helper"
@@ -65,8 +65,8 @@ describe "User signs in", type: :system do
 end
 ```
 
-## User sign up  
-`spec/system/user_signup_spec.rb`
+## Sign up  
+`spec/system/signup_spec.rb`
 
 ```ruby
 require "rails_helper"
@@ -112,8 +112,8 @@ describe "User signs up", type: :system do
 end
 ```
 
-## User sign out
- `spec/system/user_signout_spec.rb`
+## Sign out
+ `spec/system/signout_spec.rb`
 
 ```ruby
 require "rails_helper"
