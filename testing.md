@@ -1,8 +1,17 @@
-Below are few common testing scenario's for rspec.
+Below are few common testing scenario's for rspec. 
+To be able to use random sample data and to create test fixtures add to your `gemfile`
+
+```
+group :development, :test do
+  gem 'factory_bot_rails'   <---
+  gem 'faker' <---
+end
+```
 
 - [User sign in](#user-sign-in)
 - [User sign up](#user-sign-up)
 - [User sign out](#user-sign-out)
+- [forgot password](#forgot-password)
 
 ## User sign in
 `spec/system/user_signin_spec.rb`
@@ -125,3 +134,57 @@ describe "User signs out", type: :system do
 end
 ```
 
+## Forgot password
+`spec/system/forgot_password_spec.rb`
+
+```ruby
+require "rails_helper"
+
+describe "User resets a password", type: :system do
+  let(:non_existing_email) { Faker::Internet.email }
+
+  before do
+    visit new_user_password_path
+    expect(page).to have_content "Reset your password"
+  end
+
+  scenario "user enters a valid email" do
+    existing_user = create :user
+    fill_in "user_email", with: existing_user.email
+    click_button "Send me reset password instructions"
+
+    expect(page).to have_text "You will receive an email with instructions"
+    expect(page).to have_current_path new_user_session_path
+  end
+
+  scenario "user enters an invalid email" do
+    fill_in "user_email", with: "username@example.com"
+    click_button "Send me reset password instructions"
+
+    expect(page).to have_text "Email not found"
+  end
+
+  scenario "user changes password" do
+    token = create(:user).send_reset_password_instructions
+
+    visit edit_user_password_path(reset_password_token: token)
+
+    fill_in "New password", with: "Password123"
+    fill_in "Confirm new password", with: "Password123"
+    click_button "Change my password"
+
+    expect(page).to have_text "Your password has been changed successfully."
+    expect(page).to have_current_path root_path
+  end
+
+  scenario 'password reset token is invalid' do
+    visit edit_user_password_path(reset_password_token: 'token')
+
+    fill_in 'New password', with: 'p4ssw0rd'
+    fill_in 'Confirm new password', with: 'p4ssw0rd'
+    click_button 'Change my password'
+
+    expect(page).to have_text 'Reset password token is invalid'
+  end
+end
+```
