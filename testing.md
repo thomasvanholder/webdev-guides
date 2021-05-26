@@ -1,6 +1,6 @@
 Below are few common testing scenario's for rspec.
 
-* User sign out *
+## User sign out
 
 ```ruby
 require "rails_helper"
@@ -19,5 +19,4 @@ describe "User signs out", type: :system do
     expect(page).to have_no_link 'Sign Out'
   end
 end
-
 ```
