@@ -190,3 +190,4 @@ end
 
 Further reading:
 - [Better specs](https://www.betterspecs.org/#single)
+- [Rspec style guide](https://github.com/rubocop/rspec-style-guide)
