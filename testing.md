@@ -187,3 +187,6 @@ describe "User resets a password", type: :system do
   end
 end
 ```
+
+Further reading:
+- [Better specs](https://www.betterspecs.org/#single)
