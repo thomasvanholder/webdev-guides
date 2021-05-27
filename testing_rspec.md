@@ -31,7 +31,7 @@ describe "User signs in", type: :system do
     click_button "sign in"
 
     expect(page).to have_text "Welcome back"
-    find('#user-menu-button').click #click menu button to open dropw
+    find('#user-menu-button').click
     expect(page).to have_link "Sign out"
     expect(page).to have_current_path root_path
   end
