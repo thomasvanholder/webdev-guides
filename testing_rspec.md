@@ -3,7 +3,8 @@ Below are few common testing scenario's for rspec.
 - [Sign in](#Sign-in)
 - [Sign up](#Sign-up)
 - [Sign out](#Sign-out)
-- [Forgot password](#forgot-password)
+- [Forgot password](#Forgot-password)
+- [Invite user](#Invite-user)
  
 To be able to use random sample data and to create test fixtures add to your `gemfile`
 ```ruby
@@ -184,6 +185,78 @@ describe "User resets a password", type: :system do
     click_button 'Change my password'
 
     expect(page).to have_text 'Reset password token is invalid'
+  end
+end
+```
+
+## Invite User
+
+`spec/system/invite_user_spec.rb`
+- using [devise inviteable](https://github.com/scambra/devise_invitable)
+- add `gem 'capybara-email'` to gem file to to read emails
+
+```ruby
+require "rails_helper"
+
+describe "User invites a team member", type: :system do
+  let(:email) { "test@example.com" }
+
+  before do
+    user = create :user
+    login_as(user)
+    visit team_members_path
+  end
+
+  scenario "sent email" do
+    fill_in "user_email", with: email
+    click_button "Invite Team Member"
+
+    expect(page).to have_content "An invitation email has been sent to #{email}"
+    expect(ActionMailer::Base.deliveries.count).to eq(1)
+    expect(ActionMailer::Base.deliveries.last.to).to include(email)
+
+    open_email(email)
+    expect(current_email).to have_content 'Hello'
+    current_email.click_link 'Accept invitation'
+  end
+end
+
+describe "An invited user signs up", type: :system do
+  let(:password) { Faker::Internet.password(min_length: 8) }
+
+  before do
+    user = create(:user)
+    user.invite!
+    visit accept_user_invitation_path(invitation_token: user.raw_invitation_token)
+    expect(page).to have_content "Set your password"
+  end
+
+  scenario "with valid data" do
+    fill_in "user_first_name", with: "Jim"
+    fill_in "user_last_name", with: "Boom"
+    fill_in "user_password", with: password
+    fill_in "user_password_confirmation", with: password
+    click_button "Set my password"
+
+    expect(page).to have_text "Welcome"
+  end
+
+  scenario "with non-matching passwords" do
+    fill_in "user_first_name", with: "Jim"
+    fill_in "user_last_name", with: "Boom"
+    fill_in "user_password", with: password
+    fill_in "user_password_confirmation", with: 'anotherPW123'
+    click_button "Set my password"
+
+    expect(page).to have_content "Password doesn't match"
+  end
+
+  scenario "with blank passwords" do
+    fill_in "user_first_name", with: "Jim"
+    fill_in "user_last_name", with: "Boom"
+    click_button "Set my password"
+
+    expect(page).to have_content "Password can't be blank"
   end
 end
 ```
