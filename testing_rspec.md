@@ -1,10 +1,14 @@
 Below are few common testing scenario's for rspec.
 
+# Devise
 - [Sign in](#Sign-in)
 - [Sign up](#Sign-up)
 - [Sign out](#Sign-out)
 - [Forgot password](#Forgot-password)
 - [Invite user](#Invite-user)
+
+# Rails
+- [Name scopes](#Named-scopes)
  
 To be able to use random sample data and to create test fixtures add to your `gemfile`
 ```ruby
@@ -257,6 +261,32 @@ describe "An invited user signs up", type: :system do
     click_button "Set my password"
 
     expect(page).to have_content "Password can't be blank"
+  end
+end
+```
+
+
+## Named scopes
+```
+# app/models/user.rb
+
+class User < ActiveRecord::Base
+  scope :admins, -> { where(admin: true) }
+end
+
+# spec/models/user_spec.rb
+
+RSpec.describe User, type: :model do
+  describe ".admins" do
+    it "includes users with admin flag" do
+      admin = User.create!(admin: true)
+      expect(User.admins).to include(admin)
+    end
+
+    it "excludes users without admin flag" do
+      non_admin = User.create(admin: false)
+      expect(User.admins).not_to include(non_admin)
+    end
   end
 end
 ```
