@@ -267,7 +267,7 @@ end
 
 
 ## Named scopes
-```
+```ruby
 # app/models/user.rb
 
 class User < ActiveRecord::Base
