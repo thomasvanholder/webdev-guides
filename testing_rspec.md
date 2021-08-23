@@ -8,7 +8,7 @@ Below are few common testing scenario's for rspec.
 - [Invite user](#Invite-user)
 
 # Rails
-- [Name scopes](#Named-scopes)
+- [Named scopes](#Named-scopes)
  
 To be able to use random sample data and to create test fixtures add to your `gemfile`
 ```ruby
