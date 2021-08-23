@@ -283,7 +283,7 @@ RSpec.describe User, type: :model do
       expect(User.admins).to include(admin)
     end
 
-    it "excludes users without admin flag" do
+    it "excludes users with admin flag" do
       non_admin = User.create(admin: false)
       expect(User.admins).not_to include(non_admin)
     end
